@@ -13,7 +13,7 @@
                 <th scope="col">Title</th>
                 <th scope="col">Content</th>
                 <th scope="col"></th>
-
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody id="posts">
@@ -22,6 +22,7 @@
                     <td><%= post.title %></td>
                     <td><%= post.content %></td>
                     <td><%= link_to 'Edit', edit_post_path(post), remote: true, class: 'btn btn-info', id: 'editbtn' %></td>
+                    <td><%= link_to 'Delete', post, method: :delete, remote: true, class: 'btn btn-danger', data: {confirm: 'Are you sure?'} %></td>
                 </tr>
             <% end %>
         </tbody>
