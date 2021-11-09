@@ -1,0 +1,25 @@
+<div class="container my-3">
+    <%= form_with(model: @post, remote: true) do |f| %>
+        <% if @post.errors.any? %>
+            <div id = 'error_explanation'>
+                <h2>This post couldn't create for the next reasons:</h2>
+                <ul>
+                    <% @post.errors.full_messages.each do |msg|%>
+                        <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+        <div class = 'field'>
+            <%= f.label :title, 'Title' %>
+            <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <div class = 'field'>
+            <%= f.label :content, 'Content' %>
+            <%= f.text_field :content, class: 'form-control' %>
+        </div>
+        <div class = 'actions my-3'>
+            <%= f.submit %>
+        </div>
+    <% end %>
+</div>
