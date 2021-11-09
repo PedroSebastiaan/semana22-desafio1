@@ -12,13 +12,16 @@
             <tr>
                 <th scope="col">Title</th>
                 <th scope="col">Content</th>
+                <th scope="col"></th>
+
             </tr>
         </thead>
         <tbody id="posts">
             <% @posts.each do |post| %>
-                <tr>
+                <tr id="post-<%=post.id%>">
                     <td><%= post.title %></td>
                     <td><%= post.content %></td>
+                    <td><%= link_to 'Edit', edit_post_path(post), remote: true, class: 'btn btn-info', id: 'editbtn' %></td>
                 </tr>
             <% end %>
         </tbody>

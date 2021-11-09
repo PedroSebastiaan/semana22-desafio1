@@ -1,6 +1,5 @@
 $(document).ready(function(){
     $('#form').append('<%= escape_javascript render('posts/form') %>');
-
         $("#submit").click(function(){
         $("#form").slideUp("slow");
     });
