@@ -1,10 +1,18 @@
-<h1 class="container my-5">Post Here!</h1>
+<h1 class="container my-5">Posts Here!</h1>
 
 <div class="container" id="mybutton">
     <%= link_to 'New Post', new_post_path, class: 'btn btn-primary', remote: true %>
 </div>
 
 <div id="form"></div>
+
+<nav class="navbar navbar-expand-lg navbar-light container my-3">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searcher">
+        </form>
+    </div>
+</nav>
 
 <div class="container my-5">
     <table class="table">
@@ -19,10 +27,10 @@
         <tbody id="posts">
             <% @posts.each do |post| %>
                 <tr id="post-<%=post.id%>">
-                    <td><%= post.title %></td>
-                    <td><%= post.content %></td>
-                    <td><%= link_to 'Edit', edit_post_path(post), remote: true, class: 'btn btn-info', id: 'editbtn' %></td>
-                    <td><%= link_to 'Delete', post, method: :delete, remote: true, class: 'btn btn-danger', data: {confirm: 'Are you sure?'} %></td>
+                    <td class="searchable"><%= post.title %></td>
+                    <td class="searchable"><%= post.content %></td>
+                    <th class="links"><%= link_to 'Edit', edit_post_path(post), remote: true, class: 'btn btn-info', id: 'editbtn' %></th>
+                    <th class="links"><%= link_to 'Delete', post, method: :delete, remote: true, class: 'btn btn-danger', data: {confirm: 'Are you sure?'} %></th>
                 </tr>
             <% end %>
         </tbody>
